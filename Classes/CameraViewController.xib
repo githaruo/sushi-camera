@@ -23,7 +23,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" fixedFrame="YES" image="22405107-7BD2-4D0C-9120-90E1F1446E8E" translatesAutoresizingMaskIntoConstraints="NO" id="16">
+                <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" fixedFrame="YES" image="FF4F9A1C-DFEF-434E-AB22-65022656BC7E" translatesAutoresizingMaskIntoConstraints="NO" id="16">
                     <rect key="frame" x="0.0" y="140" width="320" height="119"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </imageView>
@@ -118,7 +118,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFill" fixedFrame="YES" image="22405107-7BD2-4D0C-9120-90E1F1446E8E" translatesAutoresizingMaskIntoConstraints="NO" id="81" userLabel="Adjustable Layer Image View">
+                <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFill" fixedFrame="YES" image="FF4F9A1C-DFEF-434E-AB22-65022656BC7E" translatesAutoresizingMaskIntoConstraints="NO" id="81" userLabel="Adjustable Layer Image View">
                     <rect key="frame" x="0.0" y="140" width="320" height="119"/>
                 </imageView>
             </subviews>
@@ -132,7 +132,7 @@
         </scrollView>
     </objects>
     <resources>
-        <image name="22405107-7BD2-4D0C-9120-90E1F1446E8E" width="1200" height="445">
+        <image name="FF4F9A1C-DFEF-434E-AB22-65022656BC7E" width="1200" height="445">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA

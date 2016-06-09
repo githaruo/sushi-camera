@@ -32,6 +32,9 @@
                             initWithNibName:@"CameraViewController" bundle:nil];
     self.window.rootViewController = self._viewController;
     [self.window makeKeyAndVisible];
+    
+    // Use Firebase library to configure APIs
+    [_FIRApp configure];
 
     return YES;
 }
