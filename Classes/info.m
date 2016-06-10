@@ -9,7 +9,11 @@
 
 #import "info.h"
 
+@import GoogleMobileAds;
+
 @implementation info
+
+@synthesize bannerView;
 UIWebView *webView;
 
 - (void)adViewDidReceiveAd:(GADBannerView *)bannerView;{
@@ -52,22 +56,24 @@ UIWebView *webView;
     UIScrollView *scrollView = [webView.subviews objectAtIndex:0];
     scrollView.bounces = NO;
     
-    bannerView_ = [[GADBannerView alloc]
-                   initWithFrame:CGRectMake(0.0,44,
-                                            GAD_SIZE_320x50.width,
-                                            GAD_SIZE_320x50.height)];
+    bannerView = [[GADBannerView alloc]
+                  initWithFrame:CGRectMake(0.0,44,
+                                           GAD_SIZE_320x50.width,
+                                           GAD_SIZE_320x50.height)];
+    
+    self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
+    self.bannerView.rootViewController = self;
+    self.bannerView.delegate = self;
 
-    // mediationID
-    bannerView_.adUnitID = @"f7c1a695fdcd4928";
-    bannerView_.delegate = self;
+    [self.view addSubview:bannerView];
     
-    // Let the runtime know which UIViewController to restore after taking
-    // the user wherever the ad goes and add it to the view hierarchy.
-    bannerView_.rootViewController = self;
-    [self.view addSubview:bannerView_];
+    GADRequest *request = [GADRequest request];
+    request.testDevices = @[
+                            kGADSimulatorID
+                            ];
+    [self.bannerView loadRequest:request];
     
-    // Initiate a generic request to load it with an ad.
-    [bannerView_ loadRequest:[GADRequest request]];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,7 +92,7 @@ UIWebView *webView;
 
 - (void)dealloc {
     
-    [bannerView_ release];
+    //[bannerView_ release];
     [super dealloc];
 }
 

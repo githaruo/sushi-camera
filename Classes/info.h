@@ -8,14 +8,16 @@
  */
 
 #import <UIKit/UIKit.h>
-#import "GADBannerView.h"
-#import "GADBannerViewDelegate.h"
 
-@interface info : UIViewController <UIWebViewDelegate,GADBannerViewDelegate>{
+@import GoogleMobileAds;
+
+@interface info : UIViewController <UIWebViewDelegate,
+    GADBannerViewDelegate>{
     IBOutlet UIWebView *webView;
-    GADBannerView *bannerView_;
+    GADBannerView *bannerView;
 }
 
+@property (nonatomic, retain) GADBannerView *bannerView;
 @property (nonatomic, retain) id delegate;
 
 - (IBAction)dismissAction:(id)sender;

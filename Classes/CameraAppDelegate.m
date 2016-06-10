@@ -10,6 +10,8 @@
 #import "CameraAppDelegate.h"
 #import "CameraViewController.h"
 
+@import Firebase;
+
 @implementation CameraAppDelegate
 
 @synthesize window = _window;
@@ -34,7 +36,7 @@
     [self.window makeKeyAndVisible];
     
     // Use Firebase library to configure APIs
-    [_FIRApp configure];
+    // [FIRApp configure];
 
     return YES;
 }

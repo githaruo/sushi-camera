@@ -9,8 +9,6 @@
 
 #import <UIKit/UIKit.h>
 
-@import Firebase;
-
 @class CameraViewController;
 
 @interface CameraAppDelegate : NSObject <UIApplicationDelegate>
@@ -21,7 +19,5 @@
 
 @property (strong, nonatomic) UINavigationController* navigationController;
 @property (strong, nonatomic) CameraViewController* _viewController;
-@property (strong, nonatomic) FirebaseApp* FIRApp;
-
 
 @end

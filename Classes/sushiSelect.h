@@ -9,25 +9,26 @@
 
 #import <UIKit/UIKit.h>
 #import "CameraViewController.h"
-#import "GADBannerView.h"
-#import "GADBannerViewDelegate.h"
+
+@import GoogleMobileAds;
 
 @protocol sushiSelectDelegate  
 - (void) updateImage:(NSString*) string;  
 @end  
 
-@interface sushiSelect : UIViewController <UIApplicationDelegate,GADBannerViewDelegate> {
+@interface sushiSelect : UIViewController <UIApplicationDelegate, GADBannerViewDelegate> {
     IBOutlet UITableView *myTableView;
     NSMutableArray *listOfContents;
     NSMutableArray *detailContents;    
     NSMutableArray *photoList;
-    GADBannerView *bannerView_;
+    GADBannerView *bannerView;
 }
 
 @property (nonatomic, retain) UITableView *myTableView;
 @property (nonatomic, retain) NSMutableArray *listOfContents;
 @property (nonatomic, retain) NSMutableArray *detailContents;
 @property (nonatomic, retain) NSMutableArray *photoList;
+@property (nonatomic, retain) GADBannerView *bannerView;
 @property (nonatomic, retain) id delegate;
 
 @end

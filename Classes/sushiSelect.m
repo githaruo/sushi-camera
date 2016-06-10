@@ -16,6 +16,7 @@
 @synthesize listOfContents;
 @synthesize detailContents;
 @synthesize photoList;
+@synthesize bannerView;
 
 - (IBAction)dismissAction:(id)sender
 {
@@ -24,6 +25,8 @@
 
 - (void)adViewDidReceiveAd:(GADBannerView *)bannerView;{
     NSLog(@"get ads");
+    
+    //[self.view addSubview:bannerView];
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     [UIView beginAnimations:nil context:context];
@@ -99,7 +102,7 @@
 
 - (void)dealloc
 {
-    [bannerView_ release];
+    [bannerView release];
     [super dealloc];
 }
 
@@ -110,36 +113,26 @@
     
 }
 
-#pragma mark - View lifecycle
-
 - (void)viewDidLoad
 {
-    bannerView_ = [[GADBannerView alloc]
+    [super viewDidLoad];
+ 
+    bannerView = [[GADBannerView alloc]
                    initWithFrame:CGRectMake(0.0,44,
                                             GAD_SIZE_320x50.width,
                                             GAD_SIZE_320x50.height)];
-
-    // mediationID
-    bannerView_.adUnitID = @"f7c1a695fdcd4928";
-    bannerView_.delegate = self;
-    bannerView_.rootViewController = self;
     
-    // Let the runtime know which UIViewController to restore after taking
-    // the user wherever the ad goes and add it to the view hierarchy.
-
-    [self.view addSubview:bannerView_];
+    self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
+    self.bannerView.rootViewController = self;
+    self.bannerView.delegate = self;
+    [self.view addSubview:bannerView];
     
     GADRequest *request = [GADRequest request];
-    request.testDevices = [NSArray arrayWithObjects:
-                               GAD_SIMULATOR_ID,
-                               @"TEST_DEVICE_ID",
-                               nil];
-        
-    // Initiate a generic request to load it with an ad.
-    [bannerView_ loadRequest:[GADRequest request]];
-    
-    [super viewDidLoad];
-    
+    request.testDevices = @[
+                            kGADSimulatorID
+                            ];
+    [self.bannerView loadRequest:request];
+       
     self.listOfContents = [[NSMutableArray alloc] initWithCapacity:12];
     [listOfContents addObject: @"Ama Ebi"];
     [listOfContents addObject: @"Akami"];
@@ -231,7 +224,6 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-#pragma mark - Table view data source
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -260,9 +252,6 @@
     // Return NO if you do not want the item to be re-orderable.
     return YES;
 }
-
-
-#pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
